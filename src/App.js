@@ -1,23 +1,42 @@
-import React from 'react'
-import NavBar from './components/NavBar'
-import Todo from './components/Todo'
+import React, { useState } from 'react'
+import ProfileCard from './components/ProfileCard'
+import ProfileForm  from './components/ProfileForm'
 
 function App() {
 
-let title ="My activities to do for the weak"
-  return (
-    <div>
-      <NavBar title={title} />
-      <main>
-      <Todo title="learning CSS" datetime="15 August2022" /> 
-      <Todo title="learning HTML" datetime="15 August2022" /> 
-      <Todo title="learning Javascript" datetime="15 August2022" /> 
-      <Todo title="learning Web browser" datetime="15 August2022" /> 
-      <Todo title="learning react" datetime="15 August2022" /> 
-            
 
- </main>     
+  const [allProfile, setAllprofiles] = useState([
+
+    {
+      firstname:"Samsideen",
+      lastname: "Naeem",
+      email:"comfort@gmail.com",
+      phone:"0246183596"
+    }
+  ])
+
+const updateprofile = (profile) => {
+  let arr = allProfile;
+  arr.push(profile)
+  setAllprofiles([...arr])
+};
+
+  return (
+    <>
+    <div className='app'>
+  <h1>Our profile maker</h1>
     </div>
+    <ProfileForm submit={updateprofile} /> 
+    <hr />
+    <div className='list'>
+      {allProfile.map((person, index) =>(
+       <ProfileCard key={index} card={person} /> 
+      ))}
+
+
+
+    </div>
+    </>
   )
 }
 

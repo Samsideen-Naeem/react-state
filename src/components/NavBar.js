@@ -1,10 +1,21 @@
 import React from 'react'
 
-function NavBar(props) {
+function NavBar() {
   return (
-    <nav>
-    <h1>{props.title}</h1>
-    </nav>
+    <div>
+        <h1>Welcome to my shop</h1>
+        <nav>
+            <div>
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Product</li>
+                    <li>Contact</li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
   )
 }
 
